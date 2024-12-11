@@ -1,38 +1,31 @@
 {
   "canisters": {
-    "slotm_backend": {
-      "build": "python -m kybra slotm_backend src/slotm_backend/src/main.py src/slotm_backend/slotm_backend.did",
-      "candid": "src/slotm_backend/slotm_backend.did",
-      "gzip": true,
-      "post_install": ".kybra/slotm_backend/post_install.sh",
-      "tech_stack": {
-        "cdk": {
-          "kybra": {}
-        },
-        "language": {
-          "python": {}
-        }
-      },
-      "type": "custom",
-      "wasm": ".kybra/slotm_backend/slotm_backend.wasm"
-    },
     "slotm_frontend": {
-      "dependencies": [
-        "slotm_backend"
-      ],
-      "source": [
-        "src/slotm_frontend/dist"
-      ],
       "type": "assets",
-      "workspace": "slotm_frontend"
+      "source": ["src/slotm_frontend/dist"]
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://ic0.app"]
     }
   },
   "defaults": {
     "build": {
-      "args": "",
       "packtool": ""
     }
   },
-  "output_env_file": ".env",
+  "dfx": "0.24.0",
   "version": 1
 }
+
+
+
+
+
+
+
